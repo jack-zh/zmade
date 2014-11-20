@@ -35,14 +35,18 @@ function setOutput(val){
     if(set_num == 2){
       _link_list.push(_tmps);
     }else{
-      if(_tmps.length > 1){
-        var __tmpss = _tmps.split("");
-        if(__tmpss[0] == "@"){
-          if(__tmpss[0] == "@" && __tmpss[1] == "@"){
-            set_num++;
+      var __tmpss = _tmps.split("");
+      if(__tmpss[0] == "@"){
+        var __num = 0;
+        for (var j = 0; j < __tmpss.length; j++) {
+          if(__tmpss[j] == "@"){
+            __num++;
+          }else{
+            break;
           }
-        }else{
-          _link_list.push(_tmps);
+        };
+        if(__tmpss.length == __num){
+          set_num++;
         }
       }else{
         _link_list.push(_tmps);
