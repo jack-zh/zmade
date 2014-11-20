@@ -8,6 +8,12 @@
   <script src="static/codemirror/codemirror.js"></script>
   <script src="static/codemirror/markdown.js"></script>
   <script src="static/codemirror/javascript.js"></script>
+
+  <script src="static/jquery/jquery-1.10.2.min.js"></script>
+  <script src="static/jquery/dialog-min.js"></script>
+
+  <link rel="stylesheet" href="static/jquery/ui-dialog.css">
+
   <link rel="stylesheet" href="static/codemirror/codemirror.css">
   <link rel="stylesheet" href="static/css/default.css">
   <link rel="stylesheet" href="static/css/style.css">
@@ -17,7 +23,24 @@
   <div id="in">
     <form>
       <textarea id="code">
-## This is zMarkDown Editor
+@@@
+
+@author:jack.zh
+
+@title:Readme title
+
+@target:markdown
+
+@floder:editor
+
+@url:2014-11-20-1
+
+@publish:true
+
+@@@
+
+
+# This is zMarkDown Editor
 
   + Power by [markdown-editor](https://github.com/jbt/markdown-editor)
   + Simplification
@@ -53,6 +76,8 @@ Enjoy it!
     </form>
   </div>
   <div id="out"></div>
+
+  <div id="dialog-modal" title="Basic modal dialog" style="display: none;"></div>
 
   <script src="static/js/editor.js"></script>
 </body>
