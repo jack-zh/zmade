@@ -1,5 +1,7 @@
 # This is zMarkDown Editor
 
+##### version 0.2
+
   + Power by [markdown-editor](https://github.com/jbt/markdown-editor)
   + Simplification
   + `Ctrl + S` will show edit code
