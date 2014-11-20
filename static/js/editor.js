@@ -1,15 +1,15 @@
 var attachments = [
-    {"name": "c.jpg", "url":"/static/attachments/c.jpg"},
-    {"name": "fz.png", "url":"/static/attachments/fz.png"},
-    {"name": "go.jpg", "url":"/static/attachments/go.jpg"},
-    {"name": "ink.png", "url":"/static/attachments/ink.png"},
-    {"name": "linux-c.jpg", "url":"/static/attachments/linux-c.jpg"},
-    {"name": "linux.jpg", "url":"/static/attachments/linux.jpg"},
-    {"name": "lua.png", "url":"/static/attachments/lua.png"},
-    {"name": "me.png", "url":"/static/attachments/me.png"},
-    {"name": "python.png", "url":"/static/attachments/python.png"},
-    {"name": "rust.png", "url":"/static/attachments/rust.png"},
-    {"name": "zlua.png", "url":"/static/attachments/zlua.png"}
+    {"name": "c.jpg", "url":"/zmde/static/attachments/c.jpg"},
+    {"name": "fz.png", "url":"/zmde/static/attachments/fz.png"},
+    {"name": "go.jpg", "url":"/zmde/static/attachments/go.jpg"},
+    {"name": "ink.png", "url":"/zmde/static/attachments/ink.png"},
+    {"name": "linux-c.jpg", "url":"/zmde/static/attachments/linux-c.jpg"},
+    {"name": "linux.jpg", "url":"/zmde/static/attachments/linux.jpg"},
+    {"name": "lua.png", "url":"/zmde/static/attachments/lua.png"},
+    {"name": "me.png", "url":"/zmde/static/attachments/me.png"},
+    {"name": "python.png", "url":"/zmde/static/attachments/python.png"},
+    {"name": "rust.png", "url":"/zmde/static/attachments/rust.png"},
+    {"name": "zlua.png", "url":"/zmde/static/attachments/zlua.png"}
   ];
 var languageOverrides = {
   js: 'javascript',
