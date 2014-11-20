@@ -1,14 +1,16 @@
 var attachments = [
-    {"name": "a.jpg", "url":"/static/attachments/a.jpg"},
-    {"name": "b.jpg", "url":"/static/attachments/b.jpg"},
     {"name": "c.jpg", "url":"/static/attachments/c.jpg"},
-    {"name": "d.jpg", "url":"/static/attachments/d.jpg"},
-    {"name": "e.jpg", "url":"/static/attachments/e.jpg"},
-    {"name": "f.jpg", "url":"/static/attachments/f.jpg"},
-    {"name": "g.jpg", "url":"/static/attachments/g.jpg"},
-    {"name": "h.jpg", "url":"/static/attachments/h.jpg"}
+    {"name": "fz.png", "url":"/static/attachments/fz.png"},
+    {"name": "go.jpg", "url":"/static/attachments/go.jpg"},
+    {"name": "ink.png", "url":"/static/attachments/ink.png"},
+    {"name": "linux-c.jpg", "url":"/static/attachments/linux-c.jpg"},
+    {"name": "linux.jpg", "url":"/static/attachments/linux.jpg"},
+    {"name": "lua.png", "url":"/static/attachments/lua.png"},
+    {"name": "me.png", "url":"/static/attachments/me.png"},
+    {"name": "python.png", "url":"/static/attachments/python.png"},
+    {"name": "rust.png", "url":"/static/attachments/rust.png"},
+    {"name": "zlua.png", "url":"/static/attachments/zlua.png"}
   ];
-
 var languageOverrides = {
   js: 'javascript',
   html: 'xml'
@@ -88,7 +90,7 @@ function save(){
 function attachmentDialog(){
   var html = "<ul>";
   for (var i = attachments.length - 1; i >= 0; i--) {
-    html += "<li class='copy'><p>name:" + attachments[i]['name'] + "</p><p>url:" + attachments[i]['url'] + "</p></li>";
+    html += "<li class='copy'><p><a href='"+ attachments[i]['url'] +"'>" + attachments[i]['name'] + ":</a></p><p>" + attachments[i]['url'] + "</p></li>";
   };
   html += "</ul>"
   var d = dialog({
