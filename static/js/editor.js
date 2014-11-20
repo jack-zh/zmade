@@ -2,7 +2,7 @@ var attachments = [
     {"name": "c.jpg", "url":"/zmde/static/attachments/c.jpg"},
     {"name": "fz.png", "url":"/zmde/static/attachments/fz.png"},
     {"name": "go.jpg", "url":"/zmde/static/attachments/go.jpg"},
-    {"name": "ink.png", "url":"/zmde/static/attachments/ink.png"},
+    {"name": "link.png", "url":"/zmde/static/attachments/link.png"},
     {"name": "linux-c.jpg", "url":"/zmde/static/attachments/linux-c.jpg"},
     {"name": "linux.jpg", "url":"/zmde/static/attachments/linux.jpg"},
     {"name": "lua.png", "url":"/zmde/static/attachments/lua.png"},
