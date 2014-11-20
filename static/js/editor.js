@@ -27,10 +27,30 @@ function update(e){
 }
 
 function setOutput(val){
-  var _sl = val.split(/@@[@]+/);
-  var _val = val;
-  if(_sl.length == 3)
-    _val = _sl[2]
+  var _link_list = [];
+  var _sl = val.split("\n");
+  var set_num = 0;
+  for (var i = 0; i < _sl.length; i++) {
+    var _tmps = _sl[i];
+    if(set_num == 2){
+      _link_list.push(_tmps);
+    }else{
+      if(_tmps.length > 1){
+        var __tmpss = _tmps.split("");
+        if(__tmpss[0] == "@"){
+          if(__tmpss[0] == "@" && __tmpss[1] == "@"){
+            set_num++;
+          }
+        }else{
+          _link_list.push(_tmps);
+        }
+      }else{
+        _link_list.push(_tmps);
+      }
+    }
+  }
+
+  var _val = _link_list.join("\n");
   document.getElementById('out').innerHTML = marked(_val);
 }
 
