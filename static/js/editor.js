@@ -102,7 +102,7 @@ function save(){
   save2webdatabase(code);
 
   $.ajax({
-    url: 'http://localhost:8888',
+    url: 'http://42.96.155.222:7894',
     dataType: 'jsonp',
     jsonp: "jsonpcallback",
     data: data,
