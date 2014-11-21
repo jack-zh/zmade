@@ -82,9 +82,32 @@ document.addEventListener('drop', function(e){
   theReader.readAsText(theFile);
 }, false);
 
+
+function jsonpcallback(data){
+  backObj = JSON.parse(data)
+  alert(backObj.success)
+}
+
+function markdown2data(code){
+  return {'id':"123", "code":code}
+}
+
+function save2webdatabase(code){
+
+}
+
 function save(){
   var code = editor.getValue();
-  alert(code);
+  var data = markdown2data(code);
+  save2webdatabase(code);
+
+  $.ajax({
+    url: 'http://localhost:8888',
+    dataType: 'jsonp',
+    jsonp: "jsonpcallback",
+    data: data,
+    async: false
+  })
 }
 
 function attachmentDialog(){
