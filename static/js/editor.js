@@ -111,7 +111,7 @@ function save(){
 }
 
 function attachmentDialog(){
-  var html = "<ul>";
+  var html = "<ul class='attachments-ul'>";
   for (var i = attachments.length - 1; i >= 0; i--) {
     html += "<li class='copy'><p><a target='_blank' href='"+ attachments[i]['url'] +"'>" + attachments[i]['name'] + ":</a></p><p>" + attachments[i]['url'] + "</p></li>";
   };
