@@ -47,10 +47,11 @@ function setOutput(val){
             break;
           }
         };
-        if(__tmpss.length == __num){
+        if($.trim(_tmps).length == __num){
           set_num++;
         }
-      }else{
+      }
+      if(set_num == 0){
         _link_list.push(_tmps);
       }
     }
@@ -89,7 +90,52 @@ function jsonpcallback(data){
 }
 
 function markdown2data(code){
-  return {'id':"123", "code":code}
+  var backObj = {};
+  var _link_list = [];
+  var _sl = code.split("\n");
+  var set_num = 0;
+  for (var i = 0; i < _sl.length; i++) {
+    var _tmps = _sl[i];
+    if(set_num == 2){
+      _link_list.push(_tmps);
+    }else{
+      var adddflag = false;
+      var __tmpss = _tmps.split("");
+      if(__tmpss[0] == "@"){
+        var __num = 0;
+        for (var j = 0; j < __tmpss.length; j++) {
+          if(__tmpss[j] == "@"){
+            __num++;
+          }else{
+            break;
+          }
+        };
+        if($.trim(_tmps).length == __num){
+          set_num++;
+          adddflag = true;
+        }
+      }
+      if(set_num == 0){
+        _link_list.push(_tmps);
+      }else{
+        if(!adddflag){
+          if(__tmpss[0] == "@"){
+            __tmpss.shift(0);
+            var key_val_list = __tmpss.join("").split(":");
+            if(key_val_list.length > 1 && $.trim(key_val_list[0]).length > 0){
+              var key_val_key = $.trim(key_val_list[0]);
+              key_val_list.shift(0);
+              var key_val_val = $.trim(key_val_list.join(":"));
+              backObj[key_val_key] = key_val_val;
+            }
+          }
+        }
+      }
+    }
+  }
+  backObj["makedown_str"] = _link_list.join("\n");
+  // backObj["code"] = code;
+  return backObj;
 }
 
 function save2webdatabase(code){
@@ -101,13 +147,19 @@ function save(){
   var data = markdown2data(code);
   save2webdatabase(code);
 
-  $.ajax({
-    url: 'http://42.96.155.222:7894',
-    dataType: 'jsonp',
-    jsonp: "jsonpcallback",
-    data: data,
-    async: false
-  })
+  if(data.url){
+    var url = data.url;
+    delete data.url;
+    console.log(data);
+    console.log(url);
+    $.ajax({
+      url: url,
+      dataType: 'jsonp',
+      jsonp: "jsonpcallback",
+      data: data,
+      async: false
+    });
+  }
 }
 
 function attachmentDialog(){
