@@ -151,7 +151,7 @@ function markdown2data(code){
     }
   }
   backObj["makedown_str"] = _link_list.join("\n");
-  // backObj["code"] = code;
+  backObj["code"] = code;
   return backObj;
 }
 
