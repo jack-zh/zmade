@@ -188,9 +188,35 @@ function attachmentDialog(){
   d.show();
 }
 
+function noTip(ts){
+  if(!isStorage){
+    return false;
+  }
+  var notip = window.localStorage.getItem("zmade-notip");
+  if(notip){
+    if(notip == "false"){
+      notip = "true";
+    }else{
+      notip = "false";
+    }
+  }else{
+    notip = "true";
+  }
+  window.localStorage.setItem("zmade-notip", notip);
+}
+
+
 function getStorageCodeSetValue(){
+  if(!isStorage){
+    update(editor);
+    editor.focus();
+    return false;
+  }
   var value = window.localStorage.getItem("zmade-code");
-  if(value){
+  var notip = window.localStorage.getItem("zmade-notip");
+  var saveflag = window.localStorage.getItem("zmade-saveflag");
+
+  if(value && (notip === "false" || notip === null)){
     var d = dialog({
       title: 'Tip',
       content: 'Update code from localStorage?',
@@ -199,19 +225,35 @@ function getStorageCodeSetValue(){
         editor.setValue(value);
         update(editor);
         editor.focus();
+        window.localStorage.setItem("zmade-saveflag", "true");
         return true;
       },
       cancelValue: 'NO',
       cancel: function () {
         update(editor);
         editor.focus();
+        window.localStorage.setItem("zmade-saveflag", "false");
         return true;
-      }
+      },
+      statusbar: '<label><input type="checkbox" onChange="noTip(this)">不再提醒</label>'
     });
     d.showModal();
   }else{
-    update(editor);
-    editor.focus();
+    if(value){
+      console.log(saveflag);
+      if(saveflag === "true"){
+        console.log("saveflag");
+        editor.setValue(value);
+        update(editor);
+        editor.focus();
+      }else{
+        update(editor);
+        editor.focus();
+      }
+    }else{
+      update(editor);
+      editor.focus();
+    }
   }
 }
 
@@ -226,6 +268,14 @@ document.addEventListener('keydown', function(e){
     e.preventDefault();
     attachmentDialog();
     return false;
+  }
+  if(e.keyCode == 46 && (e.ctrlKey || e.metaKey) || e.keyCode == 16){
+    if(!isStorage){
+      return false;
+    }
+    window.localStorage.removeItem('zmade-code');
+    window.localStorage.removeItem('zmade-saveflag');
+    window.localStorage.removeItem('zmade-notip');
   }
 })
 
