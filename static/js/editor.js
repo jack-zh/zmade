@@ -269,13 +269,14 @@ document.addEventListener('keydown', function(e){
     attachmentDialog();
     return false;
   }
-  if(e.keyCode == 46 && (e.ctrlKey || e.metaKey) || e.keyCode == 16){
+  if(e.keyCode == 46 && (e.ctrlKey || e.metaKey)){
     if(!isStorage){
       return false;
     }
     window.localStorage.removeItem('zmade-code');
     window.localStorage.removeItem('zmade-saveflag');
     window.localStorage.removeItem('zmade-notip');
+    return false;
   }
 })
 
