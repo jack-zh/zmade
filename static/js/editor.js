@@ -1,20 +1,36 @@
 var attachments = [
-    {"name": "c.jpg", "url":"/zmde/static/attachments/c.jpg"},
-    {"name": "fz.png", "url":"/zmde/static/attachments/fz.png"},
-    {"name": "go.jpg", "url":"/zmde/static/attachments/go.jpg"},
-    {"name": "link.png", "url":"/zmde/static/attachments/link.png"},
-    {"name": "linux-c.jpg", "url":"/zmde/static/attachments/linux-c.jpg"},
-    {"name": "linux.jpg", "url":"/zmde/static/attachments/linux.jpg"},
-    {"name": "lua.png", "url":"/zmde/static/attachments/lua.png"},
-    {"name": "me.png", "url":"/zmde/static/attachments/me.png"},
-    {"name": "python.png", "url":"/zmde/static/attachments/python.png"},
-    {"name": "rust.png", "url":"/zmde/static/attachments/rust.png"},
-    {"name": "zlua.png", "url":"/zmde/static/attachments/zlua.png"}
+    {"name": "c.jpg", "url":"/zmade/static/attachments/c.jpg"},
+    {"name": "fz.png", "url":"/zmade/static/attachments/fz.png"},
+    {"name": "go.jpg", "url":"/zmade/static/attachments/go.jpg"},
+    {"name": "link.png", "url":"/zmade/static/attachments/link.png"},
+    {"name": "linux-c.jpg", "url":"/zmade/static/attachments/linux-c.jpg"},
+    {"name": "linux.jpg", "url":"/zmade/static/attachments/linux.jpg"},
+    {"name": "lua.png", "url":"/zmade/static/attachments/lua.png"},
+    {"name": "me.png", "url":"/zmade/static/attachments/me.png"},
+    {"name": "python.png", "url":"/zmade/static/attachments/python.png"},
+    {"name": "rust.png", "url":"/zmade/static/attachments/rust.png"},
+    {"name": "zlua.png", "url":"/zmade/static/attachments/zlua.png"}
   ];
 var languageOverrides = {
   js: 'javascript',
   html: 'xml'
 }
+
+function save2webdatabase(code){
+  if(isStorage){
+    window.localStorage.setItem("zmade-code",code);
+  }
+}
+
+function checkStorageSupport() {
+  if (window.localStorage) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+var isStorage = checkStorageSupport();
 
 marked.setOptions({
   highlight: function(code, lang){
@@ -25,6 +41,7 @@ marked.setOptions({
 
 function update(e){
   var val = e.getValue();
+  save2webdatabase(val);
   setOutput(val);
 }
 
@@ -138,10 +155,6 @@ function markdown2data(code){
   return backObj;
 }
 
-function save2webdatabase(code){
-
-}
-
 function save(){
   var code = editor.getValue();
   var data = markdown2data(code);
@@ -175,6 +188,33 @@ function attachmentDialog(){
   d.show();
 }
 
+function getStorageCodeSetValue(){
+  var value = window.localStorage.getItem("zmade-code");
+  if(value){
+    var d = dialog({
+      title: 'Tip',
+      content: 'Update code from localStorage?',
+      okValue: 'YES',
+      ok: function () {
+        editor.setValue(value);
+        update(editor);
+        editor.focus();
+        return true;
+      },
+      cancelValue: 'NO',
+      cancel: function () {
+        update(editor);
+        editor.focus();
+        return true;
+      }
+    });
+    d.showModal();
+  }else{
+    update(editor);
+    editor.focus();
+  }
+}
+
 document.addEventListener('keydown', function(e){
   if(e.keyCode == 83 && (e.ctrlKey || e.metaKey)){
     e.preventDefault();
@@ -189,7 +229,6 @@ document.addEventListener('keydown', function(e){
   }
 })
 
-update(editor);
-editor.focus();
+getStorageCodeSetValue();
 
 var GoSquared = { acct: 'GSN-265185-D' };
