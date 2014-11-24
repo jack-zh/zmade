@@ -4,7 +4,7 @@
 
   + Power by [markdown-editor](https://github.com/jbt/markdown-editor)
   + Simplification
-  + `Ctrl + S` will show edit code
+  + `Ctrl + S` will post the code to url which you set in header
   + `Ctrl + B` show all attachments
   + `Ctrl + Shift + Delete` clear localStorage
   + Between `@@@` is set message
