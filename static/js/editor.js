@@ -101,11 +101,6 @@ document.addEventListener('drop', function(e){
 }, false);
 
 
-function jsonpcallback(data){
-  backObj = JSON.parse(data)
-  alert(backObj.success)
-}
-
 function markdown2data(code){
   var backObj = {};
   var _link_list = [];
@@ -153,6 +148,11 @@ function markdown2data(code){
   backObj["makedown_str"] = _link_list.join("\n");
   backObj["code"] = code;
   return backObj;
+}
+
+function jsonpcallback(data){
+  alert(data);
+  var backObj = JSON.parse(data);
 }
 
 function save(){

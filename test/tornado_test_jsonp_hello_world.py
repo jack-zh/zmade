@@ -5,18 +5,23 @@ import tornado.web
 
 from tornado.options import define, options
 
-define("port", default=7894, help="run on the given port", type=int)
+import json
+
+
+define("port", default=8888, help="run on the given port", type=int)
 
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
-        id = self.get_argument("id", None)
-        print id, '---'
-        code = self.get_argument("code", None)
-        print code, '---'
-        import json
-        backObj = {"success":True}
-        backStr = json.dumps(backObj)
+        arguments = self.request.arguments;
+        print(json.dumps(arguments, indent=2))
+        backObj = {
+            "success":True,
+            "name": "jack-zh",
+            "blognum": 1,
+            "test_argument": "plus"
+        }
+        backStr = json.dumps(backObj, indent=2)
         self.write("jsonpcallback('%s')" % backStr)
 
 
