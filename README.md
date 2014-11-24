@@ -61,16 +61,15 @@ data:
 
 ##### 1. edit markdown
 
-![edit markdown](/zmade/static/readme/zmade.gif)
+![edit markdown](http://jack-zh.github.io/zmade/static/readme/zmade.gif)
 
 ##### 2. set url and started server
 
-![edit markdown](/zmade/static/readme/zmade1.gif)
+![edit markdown](http://jack-zh.github.io/zmade/static/readme/zmade1.gif)
 
 ##### 3. Save show(keycode: `Ctrl + S`)
 
-![edit markdown](/zmade/static/readme/zmade2.gif)
-
+![edit markdown](http://jack-zh.github.io/zmade/static/readme/zmade2.gif)
 
 
 ### 4. Markdown Example:
