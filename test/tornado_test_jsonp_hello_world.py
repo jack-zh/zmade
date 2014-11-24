@@ -21,7 +21,7 @@ class MainHandler(tornado.web.RequestHandler):
             "blognum": 1,
             "test_argument": "plus"
         }
-        backStr = json.dumps(backObj, indent=2)
+        backStr = json.dumps(backObj)
         self.write("jsonpcallback('%s')" % backStr)
 
 

@@ -46,19 +46,34 @@ $.ajax({
 data:
 ```javascript
 {
-    author: "jack.zh", 
-    title: "Readme title", 
-    target: "markdown", 
-    floder:"editor", 
-    publish: "true",
-    makedown_str: "...", // without @@@ plus
-    code: "..." // all edit code
+  author: "jack.zh", 
+  title: "Readme title", 
+  target: "markdown", 
+  floder:"editor", 
+  publish: "true",
+  makedown_str: "...", // without @@@ plus
+  code: "..." // all edit code
 }
 
 ```
 
+### 3. Show-how
 
-### 3. Markdown Example:
+##### 1. edit markdown
+
+![edit markdown](/zmade/static/readme/zmade.gif)
+
+##### 2. set url and started server
+
+![edit markdown](/zmade/static/readme/zmade1.gif)
+
+##### 3. Save show(keycode: `Ctrl + S`)
+
+![edit markdown](/zmade/static/readme/zmade2.gif)
+
+
+
+### 4. Markdown Example:
 
 code style:
 
@@ -84,5 +99,5 @@ table:
 | Pipe      |    1 USD | 234  |
 
 
-Enjoy it!
+Enjoy it!   
       
