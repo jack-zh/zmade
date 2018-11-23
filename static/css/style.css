@@ -2,6 +2,10 @@ sty.CodeMirror pre{
   line-height: 14px;
 }
 
+.hide {
+  display: none;
+}
+
 .attachments-ul{
   height: 400px;
   overflow-y:scroll; 

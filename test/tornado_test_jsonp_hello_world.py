@@ -13,10 +13,10 @@ define("port", default=8888, help="run on the given port", type=int)
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
-        arguments = self.request.arguments;
+        arguments = self.request.arguments
         print(json.dumps(arguments, indent=2))
         backObj = {
-            "success":True,
+            "success": True,
             "name": "jack-zh",
             "blognum": 1,
             "test_argument": "plus"
